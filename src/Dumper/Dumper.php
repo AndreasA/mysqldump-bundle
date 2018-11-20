@@ -86,6 +86,6 @@ final class Dumper implements DumperInterface
             }
         );
 
-        return new DumpResult($exitCode, implode(PHP_EOL, $output), implode(PHP_EOL, $errorOutput));
+        return new DumpResult($exitCode, implode('', $output), implode('', $errorOutput));
     }
 }
