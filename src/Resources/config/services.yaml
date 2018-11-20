@@ -1,0 +1,18 @@
+services:
+  vyfony_mysqldump.dumper.dumper:
+    class: Vyfony\Bundle\MysqldumpBundle\Dumper\Dumper
+    arguments:
+      - '@doctrine'
+
+  Vyfony\Bundle\MysqldumpBundle\Dumper\DumperInterface: '@vyfony_mysqldump.dumper'
+
+  vyfony_mysqldump.dumper.dumper_interface:
+    public: true
+    alias: Vyfony\Bundle\MysqldumpBundle\Dumper\DumperInterface
+
+  vyfony_mysqldump.command.run_mysqldump:
+    class: Vyfony\Bundle\MysqldumpBundle\Command\RunMysqldumpCommand
+    arguments:
+      - '@vyfony_mysqldump.dumper.dumper_interface'
+    tags:
+      - { name: 'console.command' }
