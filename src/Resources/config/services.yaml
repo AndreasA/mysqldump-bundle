@@ -4,7 +4,7 @@ services:
     arguments:
       - '@doctrine'
 
-  Vyfony\Bundle\MysqldumpBundle\Dumper\DumperInterface: '@vyfony_mysqldump.dumper'
+  Vyfony\Bundle\MysqldumpBundle\Dumper\DumperInterface: '@vyfony_mysqldump.dumper.dumper'
 
   vyfony_mysqldump.dumper.dumper_interface:
     public: true
