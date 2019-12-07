@@ -18,23 +18,11 @@ namespace Vyfony\Bundle\MysqldumpBundle\DumpResult;
  */
 interface DumpResultInterface
 {
-    /**
-     * @return int
-     */
     public function getExitCode(): int;
 
-    /**
-     * @return string
-     */
     public function getOutput(): string;
 
-    /**
-     * @return string
-     */
     public function getErrorOutput(): string;
 
-    /**
-     * @return bool
-     */
     public function isSuccessful(): bool;
 }

@@ -20,15 +20,7 @@ use Vyfony\Bundle\MysqldumpBundle\DumpResult\DumpResultInterface;
  */
 interface DumperInterface
 {
-    /**
-     * @param string $pathToDumpFile
-     *
-     * @return DumpResultInterface
-     */
     public function dumpAndWriteToFile(string $pathToDumpFile): DumpResultInterface;
 
-    /**
-     * @return DumpResultInterface
-     */
     public function dump(): DumpResultInterface;
 }

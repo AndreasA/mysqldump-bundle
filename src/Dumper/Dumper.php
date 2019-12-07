@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Vyfony\Bundle\MysqldumpBundle\Dumper;
 
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Common\Persistence\ManagerRegistry;
 use Symfony\Component\Process\Process;
 use Vyfony\Bundle\MysqldumpBundle\DumpResult\DumpResult;
 use Vyfony\Bundle\MysqldumpBundle\DumpResult\DumpResultInterface;
@@ -24,23 +24,15 @@ use Vyfony\Bundle\MysqldumpBundle\DumpResult\DumpResultInterface;
 final class Dumper implements DumperInterface
 {
     /**
-     * @var RegistryInterface
+     * @var ManagerRegistry
      */
     private $registry;
 
-    /**
-     * @param RegistryInterface $registry
-     */
-    public function __construct(RegistryInterface $registry)
+    public function __construct(ManagerRegistry $registry)
     {
         $this->registry = $registry;
     }
 
-    /**
-     * @param string $pathToDumpFile
-     *
-     * @return DumpResultInterface
-     */
     public function dumpAndWriteToFile(string $pathToDumpFile): DumpResultInterface
     {
         $dumpResult = $this->dump();
@@ -52,9 +44,6 @@ final class Dumper implements DumperInterface
         return $dumpResult;
     }
 
-    /**
-     * @return DumpResultInterface
-     */
     public function dump(): DumpResultInterface
     {
         $process = new Process(

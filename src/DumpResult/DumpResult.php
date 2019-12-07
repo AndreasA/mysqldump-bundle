@@ -33,11 +33,6 @@ final class DumpResult implements DumpResultInterface
      */
     private $errorOutput;
 
-    /**
-     * @param int    $exitCode
-     * @param string $output
-     * @param string $errorOutput
-     */
     public function __construct(int $exitCode, string $output, string $errorOutput)
     {
         $this->exitCode = $exitCode;
@@ -45,33 +40,21 @@ final class DumpResult implements DumpResultInterface
         $this->errorOutput = $errorOutput;
     }
 
-    /**
-     * @return int
-     */
     public function getExitCode(): int
     {
         return $this->exitCode;
     }
 
-    /**
-     * @return string
-     */
     public function getOutput(): string
     {
         return $this->output;
     }
 
-    /**
-     * @return string
-     */
     public function getErrorOutput(): string
     {
         return $this->errorOutput;
     }
 
-    /**
-     * @return bool
-     */
     public function isSuccessful(): bool
     {
         return 0 === $this->exitCode;

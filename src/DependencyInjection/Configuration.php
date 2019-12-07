@@ -21,17 +21,8 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  */
 final class Configuration implements ConfigurationInterface
 {
-    /**
-     * @return TreeBuilder
-     */
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder();
-
-        $treeBuilder
-            ->root('vyfony_mysqldump')
-        ;
-
-        return $treeBuilder;
+        return new TreeBuilder('vyfony_mysqldump');
     }
 }

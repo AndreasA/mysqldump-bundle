@@ -30,9 +30,6 @@ final class RunMysqldumpCommand extends Command
      */
     private $dumper;
 
-    /**
-     * @param DumperInterface $dumper
-     */
     public function __construct(DumperInterface $dumper)
     {
         parent::__construct();
@@ -48,12 +45,6 @@ final class RunMysqldumpCommand extends Command
         ;
     }
 
-    /**
-     * @param InputInterface  $input
-     * @param OutputInterface $output
-     *
-     * @return int
-     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $dumpResult = $this->dumper->dumpAndWriteToFile($input->getArgument('dump-file'));
